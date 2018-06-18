@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/kevinegstorf/jotto.svg?branch=master)](https://travis-ci.com/kevinegstorf/jotto)
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
