@@ -4,7 +4,7 @@ import Adapter from "enzyme-adapter-react-16";
 import { findByTestAttr, checkProps } from "../test/testUtils";
 import Congrats from "./Congrats";
 
-const defaultProps = { succes: false };
+const defaultProps = { success: false };
 
 const wrapperSetup = (props = {}) => {
   const propsSetup = { ...defaultProps, ...props };
@@ -30,6 +30,6 @@ it("should render non-empty congrats message when succes prop is true", () => {
 });
 
 it("should not throw warning with expected props", () => {
-  const expectedProps = { succes: false };
+  const expectedProps = { success: false };
   checkProps(Congrats, expectedProps);
 });
