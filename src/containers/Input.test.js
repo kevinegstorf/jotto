@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { findByTestAttr, storeFactory } from "../../testUtils/testUtils";
 import Input from "./Input";
+import { guessWord } from "../actions";
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
@@ -51,4 +52,19 @@ describe("render Input Component", () => {
   });
 });
 
-describe("update state", () => {});
+describe("redux props", () => {
+  it("should have succes piece of state as prop", () => {
+    const success = true;
+    const wrapper = setup({ success });
+    const successProp = wrapper.instance().props.success;
+
+    expect(successProp).toBe(success);
+  });
+
+  it("should confirm that the `guessWord` action creator is a function prop", () => {
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+
+    expect(guessWordProp).toBeInstanceOf(Function);
+  });
+});
