@@ -3,7 +3,7 @@ import { guessWord } from "../actions";
 
 describe("guessWord action dispatcher", () => {
   const secretWord = "party";
-  const unsuccessfulGuess = "train";
+  const wrongGuess = "train";
   describe("no guessed words", () => {
     let store;
     const initialState = { secretWord };
@@ -11,14 +11,14 @@ describe("guessWord action dispatcher", () => {
       store = storeFactory(initialState);
     });
     test("updates state correctly for unsuccessful guess", () => {
-      store.dispatch(guessWord(unsuccessfulGuess));
+      store.dispatch(guessWord(wrongGuess));
       const newState = store.getState();
       const expectedState = {
         ...initialState,
         success: false,
         guessedWords: [
           {
-            guessedWord: unsuccessfulGuess,
+            guessedWord: wrongGuess,
             letterMatchCount: 3
           }
         ]
@@ -49,14 +49,14 @@ describe("guessWord action dispatcher", () => {
       store = storeFactory(initialState);
     });
     test("updates state correctly for unsuccessful guess", () => {
-      store.dispatch(guessWord(unsuccessfulGuess));
+      store.dispatch(guessWord(wrongGuess));
       const newState = store.getState();
       const expectedState = {
         secretWord,
         success: false,
         guessedWords: [
           ...guessedWords,
-          { guessedWord: unsuccessfulGuess, letterMatchCount: 3 }
+          { guessedWord: wrongGuess, letterMatchCount: 3 }
         ]
       };
       expect(newState).toEqual(expectedState);
